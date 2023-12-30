@@ -1,0 +1,232 @@
+/* Reset margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body style */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #fff;
+}
+
+/* Navigation Link Style */
+.product-navigation {
+    text-align: left;
+    margin: 10px 0;
+    padding-left: 10px;
+     
+}
+
+.product-navigation a {
+     text-decoration: none;
+    color: #000000; 
+    font-size: 12px;
+    font-family: "fontawesome";
+}
+
+/* Header style */
+header {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 0.01em 0;
+}
+
+/* Custom left-aligned heading style */
+.custom-heading h2 {
+    text-align: left;
+    padding-left: 20px;
+    margin: 10px 0;
+    color: #494945;
+    font-family: 'Lato', sans-serif;
+    font-size: 44px:    
+}
+
+/* Center-aligned content */
+.centered-content {
+    text-align: center;
+    max-width: 70vw;
+    margin: 0 auto;
+}
+
+.centered-content .text-content {
+    text-align: left;
+}
+
+.centered-content .text-content h2 {
+    font-family: 'Lato', sans-serif;
+    font-size: 44px;
+    margin-bottom: 0.5em;
+}
+
+.centered-content .text-content h3 {
+    margin-bottom: 0.5em;
+    line-height: 34px;
+    font-size:20px;
+    font-weight: 400;
+    color: #1A1B1F;
+    
+}
+
+.centered-content img {
+    width: 90%;
+    height: auto;
+}
+
+/* Black background section styles */
+.black-background-section {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+
+.black-background-section .centered-content {
+    display: flex;
+    justify-content: center;
+    max-width: 90%;
+    margin: auto;
+}
+
+.content-left, .content-right {
+    width: 40%;
+    padding: 30px;
+    text-align: justify;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 2;
+    color: #d6d6d6;
+    font-weight: 400;
+    
+}
+
+/* Responsive adjustments for black background section */
+@media screen and (max-width: 600px) {
+    .black-background-section .centered-content {
+        flex-direction: column;
+    }
+    .content-left, .content-right {
+        width: 100%;
+    }
+}
+
+/* New Centered Section Styles */
+.centered-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    margin: auto;
+    max-width:50%;
+    font-weight: 400;
+     line-height: 2;
+    color: #696969;
+}
+
+.centered-section h2{
+    text-align: left;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 24x;
+     font-weight: 700;
+    
+}
+
+.centered-section p {
+    text-align: left;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    
+}
+
+.centered-section img {
+    width: 100%;
+    height: auto;
+   
+    margin-top: 1em;
+}
+
+/* Section style */
+section {
+    padding: 1em;
+}
+
+/* Footer style */
+footer {
+    background-color: #f3f3f3;
+    text-align: center;
+    padding: 1em 0;
+}
+
+
+
+/* ... existing CSS content ... */
+
+/* ... existing CSS content ... */
+
+/* Image Gallery Styles */
+.image-gallery {
+    text-align: center;
+    padding: 20px;
+}
+
+.image-gallery h2 {
+    margin-bottom: 20px;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-item {
+    flex-basis: calc(40% - 2px); /* Adjust for two items per row */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.image-item img {
+    width: 90%; /* Ensures image takes full width of its container */
+    height: auto;
+}
+
+.image-item .image-description {
+    width: 80%; /* Description width matches the image width */
+    text-align: center;
+}
+
+.image-item .image-description p {
+    margin-top: 5px;
+    text-align: justify;
+    font-family: 'Lato', sans-serif;
+     font-weight: 400;
+     line-height: 1.5;
+    color: #696969;
+}
+
+.image-item .image-description h2 {
+text-align: left;
+    width: 100%;
+    font-family: 'Lato', sans-serif;
+    font-size: 24x;
+     font-weight: 700;
+     color: #696969;
+}
+
+
+
+
+
+
+/* Responsive Adjustments */
+@media screen and (max-width: 600px) {
+    .image-item {
+        flex-basis: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* ... rest of your CSS ... */
