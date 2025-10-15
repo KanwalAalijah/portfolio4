@@ -1,36 +1,158 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Website - Next.js 14
+
+A modern, full-stack portfolio website built with the latest technologies.
+
+## Tech Stack
+
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Modern styling
+- **NextAuth.js** - Authentication
+- **Prisma** - Database ORM
+- **PostgreSQL** - Database
+
+## Features
+
+- 🎨 Modern, responsive design matching your specifications
+- 🔐 Complete authentication system (login/register)
+- 🛡️ Protected dashboard page
+- 💾 Database integration with Prisma
+- 📱 Fully responsive for all devices
+- ⚡ Server-side rendering with Next.js 14
+- 🎭 Type-safe with TypeScript
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Set Up Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/portfolio"
+
+# NextAuth
+NEXTAUTH_SECRET="your-secret-key-here"
+NEXTAUTH_URL="http://localhost:3000"
+```
+
+To generate a NEXTAUTH_SECRET, run:
+```bash
+openssl rand -base64 32
+```
+
+### 3. Set Up Database
+
+You have several options for PostgreSQL:
+
+#### Option A: Local PostgreSQL
+Install PostgreSQL locally and create a database:
+```bash
+createdb portfolio
+```
+
+#### Option B: Supabase (Recommended)
+1. Go to [supabase.com](https://supabase.com)
+2. Create a new project
+3. Get your connection string from Settings > Database
+4. Update DATABASE_URL in your .env file
+
+#### Option C: Vercel Postgres
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run: `vercel postgres create`
+3. Follow the prompts
+4. Update DATABASE_URL with the connection string
+
+### 4. Run Database Migrations
+
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+### 5. Start Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to see your portfolio!
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **/** - Homepage with your portfolio
+- **/login** - Login page
+- **/register** - Registration page
+- **/dashboard** - Protected dashboard (requires authentication)
+
+## Customization
+
+### Update Personal Information
+
+Edit `app/page.tsx` to update:
+- Your name and title
+- Professional experience
+- Projects
+- Design thinking approach
+
+### Add Profile Image
+
+Add your profile picture as `public/profile.jpg`
+
+### Add Project Images
+
+Add project images to the `public` folder:
+- `public/project1.jpg`
+- `public/project2.jpg`
+- `public/project3.jpg`
+
+## Database Schema
+
+The project includes:
+- **User** model for authentication
+- **Account** model for OAuth providers
+- **Session** model for session management
+
+To add more models, edit `prisma/schema.prisma` and run:
+```bash
+npx prisma db push
+```
+
+## Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your repository
+4. Add environment variables
+5. Deploy!
+
+Vercel will automatically:
+- Install dependencies
+- Build your project
+- Deploy to production
+
+## Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs)
+- [NextAuth.js Documentation](https://next-auth.js.org)
+- [Prisma Documentation](https://www.prisma.io/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+For issues or questions, please open an issue on GitHub.
