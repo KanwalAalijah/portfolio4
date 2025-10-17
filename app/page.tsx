@@ -286,12 +286,12 @@ const projects = [
     comingSoon: false,
   },
   {
-    title: "Smart Home Energy Optimizer",
+    title: "Fleet Management Web App",
     description:
-      "Created an IoT solution that integrates with smart home devices to predict energy consumption patterns and optimize smart schedules.",
-    image: "/project2.jpg",
-    link: "#",
-    comingSoon: true,
+      "Comprehensive fleet management system that tracks vehicles in real-time, optimizes routes, monitors fuel consumption, and streamlines maintenance scheduling for efficient logistics operations.",
+    image: "/project2.png",
+    link: "https://logistics.kanwalaalijah.com",
+    comingSoon: false,
   },
   {
     title: "Personalized Learning Platform",
