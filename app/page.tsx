@@ -59,11 +59,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section id="projects" className="py-20 lg:py-32 bg-gray-50">
+      {/* Featured Products Section */}
+      <section id="products" className="py-20 lg:py-32 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-normal text-black mb-16">
-            Featured Hobby Projects
+            Featured Hobby Products
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -147,10 +147,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center mb-8">
             <div className="flex space-x-8 mb-6 md:mb-0">
               <Link href="#about" className="text-gray-500 hover:text-black transition-colors font-light">
-                Explore
+                About
               </Link>
-              <Link href="#projects" className="text-gray-500 hover:text-black transition-colors font-light">
-                Connect
+              <Link href="/projects" className="text-gray-500 hover:text-black transition-colors font-light">
+                Projects
+              </Link>
+              <Link href="#products" className="text-gray-500 hover:text-black transition-colors font-light">
+                Products
               </Link>
               <Link href="#contact" className="text-gray-500 hover:text-black transition-colors font-light">
                 Contact
@@ -276,6 +279,219 @@ const approaches = [
   },
 ]
 
+const professionalProjects = [
+  {
+    title: "DealFlow Diligence: AI-Accelerated M&A Due Diligence",
+    tags: ["Financial Services", "Agentic KG-RAG"],
+    description: "Due diligence cycle reduced from 4-6 weeks to 5-7 days with 380% ROI.",
+    metrics: [
+      { value: "380%", label: "ROI" },
+      { value: "10 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Over $50M", timeline: "Under 3 months" },
+  },
+  {
+    title: "BlueCross BlueShield: GenAI Claims-Automation Suite",
+    tags: ["Healthcare", "Agentic RAG"],
+    description: "A leading U.S. health insurance provider automated 35% of claims processing and achieved $14.7M annual benefits.",
+    metrics: [
+      { value: "$14.7M annually", label: "ROI" },
+      { value: "14 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Over $10M", timeline: "3-6 months" },
+  },
+  {
+    title: "FoodHealth Co: Personalised-Nutrition Marketplace",
+    tags: ["HealthTech", "Hybrid-RAG"],
+    description: "Built sophisticated nutrition platform securing $7.5M Series A funding with 77% user satisfaction.",
+    metrics: [
+      { value: "$7.5M funding", label: "ROI" },
+      { value: "14 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Under $10M", timeline: "3-6 months" },
+  },
+  {
+    title: "UBF: Donor-Impact Analytics & Grant Optimiser",
+    tags: ["Non-Profit", "GraphRAG"],
+    description: "Secured 40% more funding through data-driven impact demonstration and grant optimization.",
+    metrics: [
+      { value: "+40% funding", label: "ROI" },
+      { value: "8 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Under $10M", timeline: "Under 3 months" },
+  },
+  {
+    title: "Nike: Multilingual Search & Taxonomy LLMs",
+    tags: ["Retail", "Fine-tuning"],
+    description: "Achieved 12% uplift in search-to-cart conversion across 26 languages and global markets.",
+    metrics: [
+      { value: "+12% conversion", label: "ROI" },
+      { value: "12 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Over $50M", timeline: "3-6 months" },
+  },
+  {
+    title: "Zewst: AI Inventory & Demand-Forecasting for Restaurants",
+    tags: ["Restaurant Tech", "AutoML"],
+    description: "25% reduction in food waste with 300+ restaurants onboarded in first quarter.",
+    metrics: [
+      { value: "-25% waste", label: "ROI" },
+      { value: "10 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Under $10M", timeline: "Under 3 months" },
+  },
+  {
+    title: "Pinch: All-in-One Restaurant OS for Pakistan",
+    tags: ["Restaurant Tech", "Agentic AI"],
+    description: "5× GMV growth within 6 months with platform fees reduced from 18% to <4%.",
+    metrics: [
+      { value: "5× GMV", label: "ROI" },
+      { value: "16 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "3-6 months" },
+  },
+  {
+    title: "Nivelo: Real-Time ACH Fraud-Detection Engine",
+    tags: ["FinTech", "Low-Latency ML"],
+    description: "92% fraud detection accuracy at 140ms latency, creating new licensing revenue stream.",
+    metrics: [
+      { value: "New revenue stream", label: "ROI" },
+      { value: "12 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "3-6 months" },
+  },
+  {
+    title: "EY TaxTech: K-1/K-3 Document-AI & Smart Queueing",
+    tags: ["Professional Services", "Document AI"],
+    description: "$3M annual labor savings with 2× extraction accuracy and 98% on-time filing rate.",
+    metrics: [
+      { value: "$3M annually", label: "ROI" },
+      { value: "14 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Under $10M", timeline: "3-6 months" },
+  },
+  {
+    title: "PwC: Private-Equity Alpha Finder with RAG Swarm",
+    tags: ["Financial Services", "Agentic RAG"],
+    description: "Research cycle reduced from 5-7 days to 2 hours, supporting $400M in closed deals.",
+    metrics: [
+      { value: "$400M deals", label: "ROI" },
+      { value: "10 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Over $50M", timeline: "Under 3 months" },
+  },
+  {
+    title: "NZ Customs: AI Cargo Drug-Smuggling Detector",
+    tags: ["Government", "Risk ML"],
+    description: "3× uplift in high-risk container detection, awarded WCO Certificate of Merit.",
+    metrics: [
+      { value: "3× detection", label: "ROI" },
+      { value: "8 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "Under 3 months" },
+  },
+  {
+    title: "ACC Insurance: Provider-Fraud Scoring Micro-services",
+    tags: ["Insurance", "Behavioral ML"],
+    description: "NZ$18M annual recovery with 30% precision improvement over legacy systems.",
+    metrics: [
+      { value: "NZ$18M/year", label: "ROI" },
+      { value: "10 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "Under 3 months" },
+  },
+  {
+    title: "Trinidad & Tobago: Revenue-Evasion Predictor",
+    tags: ["Government", "GraphRAG"],
+    description: "$3.4M under-declared duties flagged in Q1 with 3× hit-rate improvement.",
+    metrics: [
+      { value: "$3.4M Q1", label: "ROI" },
+      { value: "30 days", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "Under 3 months" },
+  },
+  {
+    title: "Saudi Customs: Post-Clearance Audit AI Accelerator",
+    tags: ["Government", "Policy-Aware RAG"],
+    description: "$50M+ unpaid duties recovered in 6 months with 32% reduction in review time.",
+    metrics: [
+      { value: "$50M recovered", label: "ROI" },
+      { value: "16 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Over $50M", timeline: "3-6 months" },
+  },
+  {
+    title: "Auckland Blues: Soft-Tissue Injury Predictor",
+    tags: ["Sports", "Multimodal Fusion"],
+    description: "21% reduction in match-day injuries with multimodal edge AI deployment.",
+    metrics: [
+      { value: "-21% injuries", label: "ROI" },
+      { value: "12 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Under $10M", timeline: "3-6 months" },
+  },
+  {
+    title: "Centrality: ICO-Success & Crypto-Trading AI",
+    tags: ["Hedge Fund", "Multi-Signal ML"],
+    description: "24% of fund PnL with +18% CAGR over ETH buy-and-hold strategy.",
+    metrics: [
+      { value: "24% of PnL", label: "ROI" },
+      { value: "14 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "3-6 months" },
+  },
+  {
+    title: "Healthdex: Privacy-Preserving Health-Data Marketplace",
+    tags: ["HealthTech", "Homomorphic Encryption"],
+    description: "$6M Series A secured with $25M GMV projected by 2026 using homomorphic encryption.",
+    metrics: [
+      { value: "$6M funding", label: "ROI" },
+      { value: "18 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "3-6 months" },
+  },
+  {
+    title: "MASI: Low-Resource-Language LLM Translation",
+    tags: ["Education", "LLM Fine-tuning"],
+    description: "+19 BLEU score lift enabling 4,800 rural students to access bilingual education.",
+    metrics: [
+      { value: "+19 BLEU", label: "ROI" },
+      { value: "12 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Under $10M", timeline: "3-6 months" },
+  },
+  {
+    title: "BioSynapse: Accelerating Drug Discovery with Agentic Knowledge Graph",
+    tags: ["Healthcare", "Knowledge Graph"],
+    description: "40% reduction in drug target discovery time with 3 repurposing candidates identified.",
+    metrics: [
+      { value: "Multi-million over 5 years", label: "ROI" },
+      { value: "16 weeks", label: "Implementation" },
+    ],
+    stats: { value: "Over $50M", timeline: "3-6 months" },
+  },
+  {
+    title: "FactoryFlow AI: Predictive Maintenance with Voice-Assisted Technicians",
+    tags: ["Manufacturing", "Voice AI"],
+    description: "25% reduction in unplanned downtime with 285% ROI through voice AI assistance.",
+    metrics: [
+      { value: "285%", label: "ROI" },
+      { value: "12 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "3-6 months" },
+  },
+  {
+    title: "AmplifyInfluence: Hyper-Personalized Creator Campaigns at Scale",
+    tags: ["Retail", "Multimodal Generation"],
+    description: "35% increase in ROAS with 5x more micro-influencer collaborations enabled.",
+    metrics: [
+      { value: "+35% ROAS", label: "ROI" },
+      { value: "8 weeks", label: "Implementation" },
+    ],
+    stats: { value: "$10M-50M", timeline: "Under 3 months" },
+  },
+]
+
 const projects = [
   {
     title: "Crypto Sentiment Analysis",
@@ -294,11 +510,11 @@ const projects = [
     comingSoon: false,
   },
   {
-    title: "Personalized Learning Platform",
+    title: "Customer Support AI Assistant",
     description:
-      "Design and built a platform utilizing adaptive learning to deliver educational content and quizzes to individual student learning needs and pace.",
+      "Intelligent RAG-powered document search system using Google Gemini embeddings and Pinecone vector database. Upload policy documents and get AI-generated answers with source citations in real-time.",
     image: "/project3.jpg",
-    link: "#",
-    comingSoon: true,
+    link: "https://customer-support-7chu4a4et-kanwalaalijahs-projects.vercel.app",
+    comingSoon: false,
   },
 ]
