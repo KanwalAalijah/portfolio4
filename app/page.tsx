@@ -513,8 +513,8 @@ const projects = [
     title: "Customer Support AI Assistant",
     description:
       "Intelligent RAG-powered document search system using Google Gemini embeddings and Pinecone vector database. Upload policy documents and get AI-generated answers with source citations in real-time.",
-    image: "/project3.jpg",
-    link: "https://customer-support-7chu4a4et-kanwalaalijahs-projects.vercel.app",
+    image: "/docrag.png",
+    link: "https://customer-support-rag.vercel.app/",
     comingSoon: false,
   },
 ]
