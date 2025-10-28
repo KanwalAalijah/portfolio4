@@ -10,10 +10,26 @@ export default function Home() {
       {/* Hero Section */}
       <section id="home" className="bg-white py-32 lg:py-48">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-black mb-8 leading-tight">
-              — Crafting meaningful, AI-driven products that turn data into insight and ideas into impact.
-            </h1>
+          <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+            {/* Hero Text */}
+            <div className="flex-1 max-w-4xl">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-normal text-black mb-8 leading-tight">
+                — Crafting meaningful, AI-driven products that turn data into insight and ideas into impact.
+              </h1>
+            </div>
+            {/* Profile Image */}
+            <div className="flex-shrink-0">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full border-4 border-gray-200 overflow-hidden bg-[#D4B896]">
+                <Image
+                  src="/kanwal3.jpg"
+                  alt="Kanwal Aalijah"
+                  width={384}
+                  height={384}
+                  className="object-contain w-full h-full scale-[1.34] translate-y-[12%]"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
