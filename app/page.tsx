@@ -2,12 +2,12 @@ import Image from "next/image"
 import Link from "next/link"
 
 const brands = [
-  "NIKE",
-  "EY",
-  "PwC",
-  "KPMG",
-  "BITEWELL",
-  "BLUECROSS",
+  { name: "Nike", image: "/Nike.png" },
+  { name: "EY", image: "/EY.png" },
+  { name: "KPMG", image: "/KPMG.png" },
+  { name: "Delivery Hero", image: "/delivery-hero.png" },
+  { name: "DMT", image: "/DMT.png" },
+  { name: "RCRC", image: "/RCRC.png" },
 ]
 
 const certifications = [
@@ -161,15 +161,20 @@ export default function Home() {
       <section id="brands" className="pt-12 pb-12 lg:pt-16 lg:pb-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-black tracking-wide mb-12 text-center">
+            <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-black tracking-wide mb-12">
               BRANDS I&apos;VE WORKED WITH
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center justify-items-center">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 items-center justify-items-center">
               {brands.map((brand, index) => (
-                <div key={index} className="flex items-center justify-center w-full h-16">
-                  <span className="text-2xl md:text-3xl font-bold text-black opacity-60 hover:opacity-100 transition-opacity">
-                    {brand}
-                  </span>
+                <div key={index} className="flex items-center justify-center w-full h-28 p-2">
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={brand.image}
+                      alt={brand.name}
+                      fill
+                      className="object-contain opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </div>
                 </div>
               ))}
             </div>
@@ -178,7 +183,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section */}
-      <section id="products" className="pt-12 pb-20 lg:pt-16 lg:pb-32 bg-gray-50">
+      <section id="products" className="pt-12 pb-20 lg:pt-16 lg:pb-32 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-black tracking-wide mb-12">
