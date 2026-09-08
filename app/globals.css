@@ -2,25 +2,126 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b0b0b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-ink: #0b0b0b;
+  --color-soft: #6d7275;
+  --color-accent: #00959f;
+  --color-accentdark: #007a83;
+  --font-sans: var(--font-afacad);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1100px 600px at 85% -5%, rgba(186, 230, 240, 0.35), transparent 60%),
+    radial-gradient(900px 550px at -10% 30%, rgba(255, 224, 200, 0.28), transparent 55%),
+    #ffffff;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-afacad), system-ui, sans-serif;
+  overflow-x: clip;
 }
+
+::selection {
+  background: #b9e8ec;
+  color: #0b0b0b;
+}
+
+/* rotating hero line */
+@keyframes heroSwap {
+  0% { opacity: 0; transform: translateY(16px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-16px); }
+}
+.hero-swap { animation: heroSwap 3.6s ease-in-out both; }
+
+/* sparkle */
+@keyframes spin { to { transform: rotate(360deg); } }
+.sparkle { display: inline-block; animation: spin 7s linear infinite; transform-origin: center; }
+
+/* scroll reveal */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* card screenshot tilt */
+.shot-tilt { transform: rotate(2deg); transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+.group:hover .shot-tilt { transform: rotate(0deg) translateY(-6px) scale(1.015); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-swap, .sparkle { animation: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none; }
+  .shot-tilt, .group:hover .shot-tilt { transform: none; transition: none; }
+}
+
+/* ---------- interactive demos ---------- */
+@keyframes seqIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.play .seq { opacity: 0; animation: seqIn 0.45s ease forwards; animation-delay: calc(var(--i) * 0.55s); }
+
+@keyframes drawLine { from { stroke-dashoffset: 300; } to { stroke-dashoffset: 0; } }
+.play .draw { stroke-dasharray: 300; stroke-dashoffset: 300; animation: drawLine 2.8s ease forwards 0.4s; }
+
+@keyframes fillBar { from { width: 0; } }
+.play .bar-fill { animation: fillBar 0.9s ease both; animation-delay: calc(var(--i) * 0.55s + 0.2s); }
+
+@keyframes nodePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 149, 159, 0); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 149, 159, 0.15); }
+}
+.play .node { opacity: 0.25; animation: seqIn 0.4s ease forwards, nodePulse 1.2s ease; animation-delay: calc(var(--i) * 0.5s); }
+
+@keyframes popNode { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+.play .wheel-node { opacity: 0; animation: popNode 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; animation-delay: calc(var(--i) * 0.4s); }
+
+@keyframes stampIn { 0% { opacity: 0; transform: scale(1.6) rotate(-14deg); } 60% { opacity: 1; transform: scale(0.94) rotate(-8deg); } 100% { opacity: 1; transform: scale(1) rotate(-8deg); } }
+.play .stamp { opacity: 0; animation: stampIn 0.5s ease forwards; animation-delay: 2.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .play .seq, .play .draw, .play .bar-fill, .play .node, .play .wheel-node, .play .stamp {
+    animation-duration: 0.01s !important; animation-delay: 0s !important;
+  }
+}
+
+/* demo hint on track-record cards */
+@keyframes demoBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.demo-blink { animation: demoBlink 1.6s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-blink { animation: none !important; }
+}
+
+/* ---------- project modal ---------- */
+@keyframes modalFade { from { opacity: 0; } }
+@keyframes modalRise { from { opacity: 0; transform: translateY(24px) scale(0.98); } }
+.modal-overlay { animation: modalFade 0.25s ease both; }
+.modal-panel { animation: modalRise 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+.modal-scroll { scrollbar-width: thin; scrollbar-color: rgba(11, 11, 11, 0.18) transparent; }
+.modal-scroll::-webkit-scrollbar { width: 6px; }
+.modal-scroll::-webkit-scrollbar-thumb { background: rgba(11, 11, 11, 0.15); border-radius: 999px; }
+.modal-scroll::-webkit-scrollbar-track { background: transparent; margin: 28px 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .modal-overlay, .modal-panel { animation: none !important; }
+}
+
+/* ---------- research demos ---------- */
+@keyframes carGo { from { left: -8%; } to { left: 104%; } }
+.play .car { opacity: 0; animation: seqIn 0.3s ease forwards, carGo var(--speed, 2.6s) linear infinite; animation-delay: calc(var(--i) * 0.4s); }
+.play .car-slow { opacity: 0; animation: seqIn 0.3s ease forwards, carGo 5.2s steps(14) infinite; animation-delay: calc(var(--i) * 0.4s); }
+
+@keyframes branchIn { from { opacity: 0; transform: translateX(-8px); } to { opacity: 1; transform: none; } }
+.play .branch { opacity: 0; animation: branchIn 0.4s ease forwards; animation-delay: calc(var(--i) * 0.4s); }
+
+@keyframes slotIn {
+  0% { opacity: 0; transform: translateY(-14px); background: #fff7ed; }
+  60% { opacity: 1; transform: translateY(2px); }
+  100% { opacity: 1; transform: none; background: #f0fdf4; }
+}
+.play .slot { opacity: 0; animation: slotIn 0.8s ease forwards; animation-delay: calc(var(--i) * 0.4s); }
