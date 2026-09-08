@@ -68,7 +68,7 @@ const products: Product[] = [
     company: "Hauraki",
     title: "predicting food waste before it hits the bin",
     desc: "An AI platform for restaurants spanning POS, inventory, labour and recipes, with demand forecasting that flags waste before it happens.",
-    role: "Lead product manager at Hauraki. Took it from zero to one and scaled it to 60+ locations.",
+    role: "Lead product manager at Hauraki. Owned roadmap and delivery from zero to one, through to 60+ locations, working across data science and engineering.",
     about:
       "Zewst runs the whole restaurant on one system: point of sale, inventory, labour scheduling and recipe engineering, tied together by demand forecasting. The models predict what each location will sell, so ordering and prep match reality instead of habit, and waste gets flagged before it happens rather than counted afterwards.",
     tech: ["DEMAND FORECASTING", "PREDICTIVE ML", "POS + INVENTORY", "RECIPE ENGINEERING"],
@@ -87,7 +87,7 @@ const products: Product[] = [
     company: "Sila Insights",
     title: "spotting consumer trends weeks before they break",
     desc: "A generative-AI trend platform that surfaces emerging consumer and cultural shifts 3–4 weeks ahead of the market, for banks, FMCG and finance teams.",
-    role: "Principal product manager. Owned strategy, delivery and go-to-market; revenue in the first 60 days.",
+    role: "Principal product manager. Owned strategy, delivery and go-to-market; first revenue in 60 days, then scale across finance, FMCG and banking.",
     about:
       "TrueTrends reads social and cultural chatter at scale and separates real consumer shifts from noise, early enough to act on. Generative models cluster emerging conversations, score their momentum and explain each trend in plain language, so strategy teams in finance, FMCG and banking see what's coming 3–4 weeks before it shows up in the market.",
     tech: ["GEN AI", "TREND DETECTION", "SOCIAL ANALYTICS", "ARABIC + ENGLISH NLP"],
@@ -106,7 +106,7 @@ const products: Product[] = [
     company: "Hauraki",
     title: "matching food to the person eating it",
     desc: "The data-science engine that scores food products against individual dietary needs, and carried a company's pivot into food-health.",
-    role: "Lead product manager at Hauraki. Built the data-science engine behind the pivot.",
+    role: "Lead product manager at Hauraki. Directed the data-science build that carried the pivot and the AED 27.5M raise.",
     about:
       "FoodHealth started as the data-science engine behind Bitewell: models that score every food product against an individual's dietary needs, allergies and goals, instead of one-size-fits-all nutrition labels. The engine worked well enough to carry the company's pivot into food-health, and the scoring technology now runs under the FoodHealth brand.",
     tech: ["NUTRITION SCORING MODELS", "PERSONALISATION", "PRODUCT DATA PIPELINE", "RECOMMENDERS"],
@@ -125,7 +125,7 @@ const products: Product[] = [
     company: "Hauraki",
     title: "cutting the middleman out of restaurant delivery",
     desc: "A three-sided marketplace for Pakistan connecting restaurants, riders and customers directly, with POS, online ordering and payments built in.",
-    role: "Lead product manager at Hauraki. Shipped it and scaled adoption from 10 to 500+ restaurants.",
+    role: "Lead product manager at Hauraki. Led product, growth and the delivery team as adoption scaled from 10 to 500+ restaurants.",
     about:
       "Pinch connects the three sides of food delivery without an aggregator in the middle. Restaurants get an online store, POS, rider management, analytics and digital payments, and set their own prices. Riders bring their own schedule and keep more of every trip; restaurants can even bring their own riders. Customers pay store prices instead of marked-up menus. The result: platform fees under 4% instead of the aggregators' 18%.",
     tech: ["MARKETPLACE PLATFORM", "POS + ONLINE STORE", "RIDER DISPATCH", "DIGITAL PAYMENTS", "AGENTIC AUTOMATION"],
@@ -1692,7 +1692,7 @@ type TabId = (typeof tabs)[number]["id"]
 const strengths = [
   { icon: "🚀", title: "From idea to production", desc: "13 AI products shipped in ten years. I take things past the demo stage, into the hands of real users, with numbers attached." },
   { icon: "🏛️", title: "Trusted with government AI", desc: "At the Dubai Future Foundation I help assess and certify AI solutions for government use, so I know what responsible adoption actually takes." },
-  { icon: "🧭", title: "Product & programme in one", desc: "Roadmap, delivery, and the AI inside it. I've led cross-functional teams of 35+ engineers across three continents." },
+  { icon: "🧭", title: "Product & programme in one", desc: "Roadmap, delivery, and the AI inside it. I've led cross-functional teams of up to 38 engineers across three continents." },
   { icon: "🗣️", title: "Arabic-first AI experience", desc: "I've shipped NLP that genuinely understands Arabic, sentiment, dialects and all, across 100+ languages." },
   { icon: "🌱", title: "Teams that outlast me", desc: "I've built AI delivery organisations from scratch three times. The goal is always a team that keeps shipping without me." },
   { icon: "🔬", title: "Grounded in research", desc: "Published in data science and predictive modelling, with an MSc in Computer Science. The craft has foundations." },
@@ -1822,6 +1822,23 @@ export default function Home() {
             </div>
           </div>
         </div>
+
+        {/* leadership scope band */}
+        <section className="border-b border-ink/10">
+          <div className="mx-auto grid max-w-6xl grid-cols-2 gap-8 px-6 py-10 text-center md:grid-cols-4 md:px-10">
+            {[
+              { n: "13", l: "AI PRODUCTS SHIPPED" },
+              { n: "38", l: "ENGINEERS LED AT PEAK" },
+              { n: "3", l: "AI TEAMS BUILT FROM SCRATCH" },
+              { n: "10+", l: "YEARS SHIPPING AI" },
+            ].map((s) => (
+              <div key={s.l} className="reveal">
+                <div className="text-4xl font-semibold tracking-tight md:text-5xl">{s.n}</div>
+                <div className="mt-2 text-[11px] font-semibold tracking-widest text-soft">{s.l}</div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* work: tabbed */}
         <section id="work" className="mx-auto max-w-6xl px-6 py-24 md:px-10">
@@ -2016,9 +2033,11 @@ export default function Home() {
             <h2 className="mt-5 text-4xl font-medium tracking-tight md:text-5xl">A little about me</h2>
             <p className="mt-6 text-[17px] leading-relaxed text-soft">
               I started in data science and have spent the last ten years building AI products
-              that are used by people around the world. Today I lead AI programmes at the Dubai
-              Future Foundation, inside the Dubai Centre for AI, helping government adopt AI
-              responsibly. Along the way I picked up an MSc in Computer Science, an ISO/IEC 42001
+              that are used by people around the world. I have directed multi-million AED product
+              portfolios, built AI delivery organisations from scratch three times, and led teams
+              of up to 38 engineers across three continents. Today I lead AI programmes at the
+              Dubai Future Foundation, inside the Dubai Centre for AI, helping government adopt
+              AI responsibly. Along the way I picked up an MSc in Computer Science, an ISO/IEC 42001
               Lead Implementer certification, three AI Innovation Awards, and a soft spot for
               products that quietly work.
             </p>
