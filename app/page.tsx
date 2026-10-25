@@ -2,11 +2,31 @@
 
 import { useEffect, useRef, useState } from "react"
 
-const heroLines = [
-  "I turn AI ideas into products people actually use",
-  "I've shipped 13 AI products across gov, retail & fintech",
-  "I help governments adopt AI they can trust",
-  "I build AI teams that keep shipping after I leave",
+const heroSlides = [
+  {
+    img: "/speaking/slide-1.jpg",
+    line: "I turn AI ideas into products people actually use",
+    caption: "Middle East Enterprise AI & Analytics Summit, Dubai",
+    align: "left",
+  },
+  {
+    img: "/speaking/slide-2.jpg",
+    line: "I have shipped AI products across government, retail, ecommerce and fintech",
+    caption: "Agentic AI Accelerator session, Dubai",
+    align: "right",
+  },
+  {
+    img: "/speaking/slide-3.jpg",
+    line: "I help governments adopt AI they can trust",
+    caption: "AI policy briefing, Dubai",
+    align: "left",
+  },
+  {
+    img: "/speaking/slide-4.jpg",
+    line: "I build AI teams that thrive",
+    caption: "Agentic AI for Government Services Accelerator, Emirates Towers",
+    align: "left",
+  },
 ]
 
 /* ---------------- products ---------------- */
@@ -1737,7 +1757,7 @@ export default function Home() {
   const rootRef = useReveal(tab)
 
   useEffect(() => {
-    const t = setInterval(() => setLine((i) => (i + 1) % heroLines.length), 3600)
+    const t = setInterval(() => setLine((i) => (i + 1) % heroSlides.length), 5000)
     return () => clearInterval(t)
   }, [])
 
@@ -1768,7 +1788,7 @@ export default function Home() {
   return (
     <div ref={rootRef}>
       {/* nav */}
-      <header className="sticky top-0 z-50 backdrop-blur-md">
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-10">
           <a href="#top" className="text-xl font-semibold tracking-tight">
             Kanwal<span className="text-accent"> Aalijah</span>
@@ -1789,26 +1809,55 @@ export default function Home() {
       </header>
 
       <main id="top">
-        {/* hero */}
-        <section className="flex min-h-[78vh] flex-col items-center justify-center px-6 text-center">
-          <p className="text-lg text-soft">
-            Welcome! I&apos;m Kanwal <span className="sparkle text-accent">✳</span>
-          </p>
-          <h1
-            key={line}
-            className="hero-swap mt-5 max-w-3xl text-4xl leading-tight font-medium tracking-tight md:text-6xl"
+        {/* hero: full-bleed speaking banner carousel */}
+        <section className="relative h-[560px] overflow-hidden md:h-[470px]">
+          {heroSlides.map((s, i) => (
+            <div
+              key={s.img}
+              className={`absolute inset-0 transition-opacity duration-1000 ${i === line ? "opacity-100" : "opacity-0"}`}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={s.img} alt="" className="h-full w-full object-cover" />
+              <div
+                className={`absolute inset-0 ${s.align === "right" ? "bg-gradient-to-l" : "bg-gradient-to-r"} from-[#0a1016]/80 via-[#0a1016]/45 to-[#0a1016]/5`}
+              />
+            </div>
+          ))}
+          <div
+            className={`absolute top-1/2 max-w-xl -translate-y-1/2 text-white ${
+              heroSlides[line].align === "right" ? "right-6 md:right-[10%]" : "left-6 md:left-[10%]"
+            }`}
           >
-            {heroLines[line]}
-          </h1>
-          <p className="mt-8 text-[15px] text-soft">
-            AI programme &amp; product leader · Dubai, working worldwide
+            <p className="text-[17px] text-white/85">
+              Welcome! I&apos;m Kanwal <span className="sparkle inline-block text-[#7fe0e8]">✳</span>
+            </p>
+            <h1 key={line} className="hero-swap-slow mt-4 text-4xl leading-tight font-medium tracking-tight md:text-[52px] md:leading-[1.12]">
+              {heroSlides[line].line}
+            </h1>
+            <p className="mt-5 text-[15px] text-white/80">
+              AI programme &amp; product leader · Dubai, working worldwide
+            </p>
+            <a
+              href="#work"
+              className="mt-8 inline-block rounded-full border border-white/55 px-6 py-2.5 text-[13.5px] font-semibold tracking-wide text-white transition hover:border-white hover:bg-white/10"
+            >
+              SEE THE WORK ↓
+            </a>
+          </div>
+          <p key={`cap-${line}`} className="absolute right-5 bottom-3 hidden text-[12px] text-white/55 md:block">
+            {heroSlides[line].caption}
           </p>
-          <a
-            href="#work"
-            className="mt-10 rounded-full border border-ink/20 px-6 py-2.5 text-[14px] font-semibold tracking-wide transition hover:border-accent hover:text-accent"
-          >
-            SEE THE WORK ↓
-          </a>
+          <div className="absolute bottom-4 left-6 flex gap-2 md:left-[10%]">
+            {heroSlides.map((s, i) => (
+              <button
+                key={s.img}
+                type="button"
+                aria-label={`Slide ${i + 1}`}
+                onClick={() => setLine(i)}
+                className={`h-1.5 rounded-full transition-all duration-500 ${i === line ? "w-7 bg-white/90" : "w-3 bg-white/35"}`}
+              />
+            ))}
+          </div>
         </section>
 
         {/* get in touch strip */}
@@ -2032,14 +2081,21 @@ export default function Home() {
             <span className="inline-block rounded-full bg-ink/5 px-5 py-2 text-[12px] font-semibold tracking-widest text-ink/70">✦ ABOUT</span>
             <h2 className="mt-5 text-4xl font-medium tracking-tight md:text-5xl">A little about me</h2>
             <p className="mt-6 text-[17px] leading-relaxed text-soft">
-              I started in data science and have spent the last ten years building AI products
-              that are used by people around the world. I have directed multi-million AED product
-              portfolios, built AI delivery organisations from scratch three times, and led teams
-              of up to 38 engineers across three continents. Today I lead AI programmes at the
-              Dubai Future Foundation, inside the Dubai Centre for AI, helping government adopt
-              AI responsibly. Along the way I picked up an MSc in Computer Science, an ISO/IEC 42001
-              Lead Implementer certification, three AI Innovation Awards, and a soft spot for
-              products that quietly work.
+              I help governments and companies take AI from idea to certified production. At the
+              Dubai Centre for AI, inside the Dubai Future Foundation, I work on the certification
+              of AI systems for government use: the evaluation criteria, the technical audits, and
+              the official register of approved solutions.
+            </p>
+            <p className="mt-5 text-[17px] leading-relaxed text-soft">
+              Before the governing came the building. I spent ten years shipping AI products, with
+              Nike, EY, PwC and Eightfold among the clients, directed multi-million AED portfolios,
+              and built AI delivery teams from scratch three times, the largest with 38 engineers
+              across three continents. The work has won three AI Innovation Awards.
+            </p>
+            <p className="mt-5 text-[17px] leading-relaxed text-soft">
+              That combination is the point: I have built the AI, not only governed it. ISO/IEC
+              42001 Senior Lead Implementer, MSc in Computer Science, and a soft spot for products
+              that quietly work.
             </p>
             <p className="mt-8 text-[15px] text-soft">
               The longer story is on{" "}

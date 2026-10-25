@@ -41,6 +41,7 @@ body {
   100% { opacity: 0; transform: translateY(-16px); }
 }
 .hero-swap { animation: heroSwap 3.6s ease-in-out both; }
+.hero-swap-slow { animation: heroSwap 5.4s ease-in-out both; }
 
 /* sparkle */
 @keyframes spin { to { transform: rotate(360deg); } }
@@ -55,7 +56,7 @@ body {
 .group:hover .shot-tilt { transform: rotate(0deg) translateY(-6px) scale(1.015); }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-swap, .sparkle { animation: none !important; }
+  .hero-swap, .hero-swap-slow, .sparkle { animation: none !important; }
   .reveal { opacity: 1 !important; transform: none !important; transition: none; }
   .shot-tilt, .group:hover .shot-tilt { transform: none; transition: none; }
 }
